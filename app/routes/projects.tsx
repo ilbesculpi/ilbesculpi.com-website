@@ -5,9 +5,24 @@ import "./projects.css";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Projects | Ilbert Esculpi" },
-    { name: "description", content: "Some projects I've worked on" },
+    {
+      name: "description",
+      content: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
+    },
+    {
+      property: "og:title",
+      content: "Projects - Ilbert Esculpi"
+    },
+    {
+      property: "og:description",
+      content: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
+    },
+    { property: "og:url", content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/projects" },
+    { property: "og:image", content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg" },
+    { name: "twitter:card", content: "summary_large_image" },
   ];
 }
+
 
 type MediaOrientation = "landscape" | "portrait";
 
