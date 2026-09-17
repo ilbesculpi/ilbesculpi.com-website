@@ -1,0 +1,66 @@
+/* Projects List Card */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+}
+
+.project-role-badge {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Tech Badges */
+.project-tech-badge {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #334155;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+/* Media Gallery Row */
+.project-media-row {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.project-media-thumb {
+  flex: 0 0 180px;
+  height: 110px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.project-media-thumb img,
+.project-media-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.project-media-thumb:hover img {
+  transform: scale(1.05);
+}

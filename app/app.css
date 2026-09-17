@@ -1,15 +1,140 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+/* Container Navbar */
+.custom-navbar {
+  background-color: #ffffff !important;
+}
+
+/* Base Nav Box */
+.nav-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8fafc;
+  color: #64748b;
+  text-decoration: none;
+  min-width: 84px;
+  padding: 0.65rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.nav-box:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+/* Active Box State */
+.nav-box.active {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);
+}
+
+.nav-box-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.35rem;
+}
+
+.nav-box-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-box-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+#sidebar .avatar {
+    width: 60%;
+    margin: -1em auto 1em auto;
+    display: block;
+    border-radius: 50%;
+}
+
+#sidebar .sidebar-subtitle {
+    background-color: #333;
+    border-radius: 8px;
+    opacity: 0.8;
+    color: #fff;
+}
+
+#sidebar .tech {
+    width: 40px;
+}
+
+/* Sidebar Card & Layout */
+.sidebar-card {
+  overflow: hidden;
+}
+
+.sidebar-banner {
+  height: 80px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.sidebar-avatar-wrapper {
+  margin-top: -56px;
+}
+
+.sidebar-avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.sidebar-badge {
+  font-size: 0.8rem;
+}
+
+.sidebar-bio {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Primary Stack Section */
+.sidebar-section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.tech-icon-btn {
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tech-icon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.tech-icon-svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Contact List */
+.sidebar-contact-list {
+  font-size: 0.95rem;
+}
+
+.sidebar-contact-icon {
+  font-size: 1.1rem;
 }
