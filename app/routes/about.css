@@ -1,0 +1,78 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-intro-p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* Feature / Pillar Cards */
+.pillar-card {
+  height: 100%;
+  border: 1px solid #f1f5f9;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-2px);
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.05);
+}
+
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.85rem;
+}
+
+.pillar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.pillar-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #64748b;
+  margin-bottom: 0;
+}
+
+/* Metric Counter Boxes */
+.metric-box {
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.metric-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.35rem;
+}
