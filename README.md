@@ -1,87 +1,53 @@
-# Welcome to React Router!
+# Ilbert Esculpi — Personal Portfolio & Engineering Showcase
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+A personal portfolio website and engineering showcase built with **React Router v7** and **React-Bootstrap**. Designed to highlight cloud architectures, microservices platforms, and mobile applications with an interactive, responsive interface.
 
 ---
 
-Built with ❤️ using React Router.
+## 🚀 Tech Stack
+
+- **Framework:** [React Router v7](https://reactrouter.com/) (SSR & pathless layout route configuration)
+- **UI & Grid System:** [React-Bootstrap](https://react-bootstrap.netlify.app/) (Bootstrap 5)
+- **Styling:** Custom Modular CSS with CSS Grid and flexbox architecture
+- **Typography:** [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
+- **Language:** TypeScript
+- **Runtime & Bundler:** Node.js / Vite
+
+---
+
+## ✨ Features
+
+- **Pathless Layout Routing (`routes/_layout.tsx`):** Unifies global layout state, shared navigation headers, and route-driven `<Outlet />` lifecycles.
+- **Two-Column Sticky Architecture:**
+  - **4/12 Sidebar Profile:** Interactive contact links, avatar banner, and data-driven SVG skill matrices (Frontend, Backend & Cloud, Mobile).
+  - **8/12 Dynamic Workspace:** Tabbed horizontal box navigation directing sub-routes seamlessly.
+- **Dynamic Media Grid with Lightbox:**
+  - Configurable aspect ratios at the project entity level: `16:9` widescreen landscape (3 columns) for web dashboards versus `9:19.5` portrait (4 columns) for mobile apps.
+  - Zero-dependency media modal for fullscreen screenshot/video inspection powered by native React-Bootstrap components.
+- **Mobile-Responsive Breakdown:** Columns gracefully shift to a 12/12 vertical stack layout below `md` viewports.
+
+---
+
+## 📁 Project Structure
+
+```text
+├── app/
+│   ├── components/
+│   │   └── Sidebar.tsx         # Profile card, bio, and technology stacks
+│   ├── routes/
+│   │   ├── _layout.tsx         # Master layout wrapper with header & nav tabs
+│   │   ├── home.tsx            # About page: Core philosophy, services & metrics
+│   │   ├── projects.tsx        # Project catalog with media lightbox modal
+│   │   └── contact.tsx         # Contact overview and collaboration links
+│   ├── styles/
+│   │   ├── about.css           # Pillar cards and stats metrics styling
+│   │   ├── navbar.css          # Tabbed box-link interactions
+│   │   ├── projects.css        # Adaptive grid and lightbox overlay styles
+│   │   └── sidebar.css         # Avatar geometry and badge styling
+│   ├── root.tsx                # HTML shell, global fonts, and error boundaries
+│   └── routes.ts               # React Router v7 layout route definitions
+├── public/
+│   ├── icons/                  # Tech brand icons
+│   ├── projects/               # Showcase media assets (images/videos)
+│   └── avatar.jpeg             # Profile picture
+└── package.json
