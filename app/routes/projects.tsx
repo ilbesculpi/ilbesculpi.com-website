@@ -4,7 +4,9 @@ import "./projects.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Projects | Ilbert Esculpi" },
+    {
+      title: "Projects | Ilbert Esculpi"
+    },
     {
       name: "description",
       content: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
@@ -17,9 +19,18 @@ export function meta({}: Route.MetaArgs) {
       property: "og:description",
       content: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
     },
-    { property: "og:url", content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/projects" },
-    { property: "og:image", content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg" },
-    { name: "twitter:card", content: "summary_large_image" },
+    { 
+      property: "og:url",
+      content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/projects"
+    },
+    {
+      property: "og:image",
+      content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png"
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image"
+    },
   ];
 }
 

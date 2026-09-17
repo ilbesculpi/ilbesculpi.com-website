@@ -18,7 +18,7 @@ export const meta: Route.MetaFunction = () => [
   },
   {
     name: "description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
+    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
   },
   {
     name: "author",
@@ -36,15 +36,15 @@ export const meta: Route.MetaFunction = () => [
   },
   {
     property: "og:title",
-    content: "Ilbert Esculpi — Full-Stack Software Developer & Cloud Architect",
+    content: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
   },
   {
     property: "og:description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
+    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
   },
   {
     property: "og:image",
-    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg"
+    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png"
   },
   { property: "og:image:alt", content: "Ilbert Esculpi Profile Photo" },
 
@@ -56,16 +56,19 @@ export const meta: Route.MetaFunction = () => [
   },
   {
     name: "twitter:description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
+    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
   },
   {
     name: "twitter:image",
-    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg"
+    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png"
   },
 ];
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com"
+  },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
