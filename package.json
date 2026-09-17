@@ -2,6 +2,7 @@
   "name": "ilbesculpi.com",
   "private": true,
   "type": "module",
+  "version": "0.1.0",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
@@ -11,8 +12,10 @@
   "dependencies": {
     "@react-router/node": "^8.4.0",
     "@react-router/serve": "^8.4.0",
+    "bootstrap": "^5.3.8",
     "isbot": "^5.1.36",
     "react": "^19.2.8",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.8",
     "react-router": "^8.4.0"
   },
