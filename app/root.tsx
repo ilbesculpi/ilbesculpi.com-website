@@ -11,6 +11,59 @@ import type { Route } from "./+types/root";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
 
+// Global Social Media & SEO Tags
+export const meta: Route.MetaFunction = () => [
+  {
+    title: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect"
+  },
+  {
+    name: "description",
+    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
+  },
+  {
+    name: "author",
+    content: "Ilbert Esculpi"
+  },
+
+  // Open Graph / Facebook / LinkedIn / WhatsApp
+  {
+    property: "og:type",
+    content: "website"
+  },
+  {
+    property: "og:url",
+    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/"
+  },
+  {
+    property: "og:title",
+    content: "Ilbert Esculpi — Full-Stack Software Developer & Cloud Architect",
+  },
+  {
+    property: "og:description",
+    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
+  },
+  {
+    property: "og:image",
+    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg"
+  },
+  { property: "og:image:alt", content: "Ilbert Esculpi Profile Photo" },
+
+  // Twitter / X Card
+  { name: "twitter:card", content: "summary_large_image" },
+  {
+    name: "twitter:title",
+    content: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
+  },
+  {
+    name: "twitter:description",
+    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
+  },
+  {
+    name: "twitter:image",
+    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg"
+  },
+];
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -25,31 +78,6 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap",
-  },
-  // Open Graph / Facebook / LinkedIn / WhatsApp Tags
-  {
-    property: "og:type",
-    content: "website"
-  },
-  {
-    property: "og:url",
-    content: "https://ilbesculpi.com/"
-  },
-  {
-    property: "og:title",
-    content: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
-  },
-  {
-    property: "og:description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, and modern full-stack web and mobile applications.",
-  },
-  {
-    property: "og:image",
-    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.jpeg"
-  },
-  {
-    property: "og:image:alt",
-    content: "Ilbert Esculpi Profile Photo"
   },
 ];
 
