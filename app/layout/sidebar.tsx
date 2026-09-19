@@ -1,5 +1,5 @@
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Profile } from "../types";
+import type { Profile } from "../types";
 interface Skill {
   name: string;
   fill: string;

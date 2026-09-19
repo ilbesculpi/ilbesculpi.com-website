@@ -1,1 +1,2 @@
-export * as Profile from "./profile";
+export type * from "./profile";
+export type * from "./project";

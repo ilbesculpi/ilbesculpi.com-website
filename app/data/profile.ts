@@ -1,4 +1,4 @@
-import { Profile } from "../types";
+import type { Profile } from "../types";
 
 const profile: Profile = {
   name: "Ilbert Esculpi",
