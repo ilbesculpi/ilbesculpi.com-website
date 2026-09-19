@@ -11,14 +11,21 @@ import type { Route } from "./+types/root";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
 
+const pageTags = {
+  title: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
+  description: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
+  url: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/",
+  image: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png",
+}
+
 // Global Social Media & SEO Tags
 export const meta: Route.MetaFunction = () => [
   {
-    title: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect"
+    title: pageTags.title
   },
   {
     name: "description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
+    content: pageTags.description
   },
   {
     name: "author",
@@ -32,35 +39,41 @@ export const meta: Route.MetaFunction = () => [
   },
   {
     property: "og:url",
-    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/"
+    content: pageTags.url
   },
   {
     property: "og:title",
-    content: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
+    content: pageTags.title
   },
   {
     property: "og:description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
+    content: pageTags.description
   },
   {
     property: "og:image",
-    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png"
+    content: pageTags.image
   },
-  { property: "og:image:alt", content: "Ilbert Esculpi Profile Photo" },
+  {
+    property: "og:image:alt",
+    content: "Ilbert Esculpi Profile Photo"
+  },
 
   // Twitter / X Card
-  { name: "twitter:card", content: "summary_large_image" },
+  {
+    name: "twitter:card",
+    content: "summary_large_image"
+  },
   {
     name: "twitter:title",
-    content: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
+    content: pageTags.title
   },
   {
     name: "twitter:description",
-    content: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
+    content: pageTags.description
   },
   {
     name: "twitter:image",
-    content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png"
+    content: pageTags.image
   },
 ];
 
