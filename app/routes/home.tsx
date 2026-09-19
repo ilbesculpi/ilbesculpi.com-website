@@ -1,6 +1,7 @@
 import { Row, Col, Card } from "react-bootstrap";
 import type { Route } from "./+types/home";
 import "./about.css";
+import profile from "../data/profile";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -49,7 +50,8 @@ const METRICS = [
 export default function Home() {
   return (
     <div className="about-container">
-      {/* 1. Main Bio Card */}
+      
+      {/* Bio Card */}
       <Card className="border-0 shadow-sm rounded-4 bg-white">
         <Card.Body className="p-4 p-md-5">
           <div className="d-flex align-items-center gap-2 mb-3">
@@ -83,7 +85,7 @@ export default function Home() {
         </Card.Body>
       </Card>
 
-      {/* 2. What I Do / Pillars Section */}
+      {/* What I Do / Pillars Section */}
       <Card className="border-0 shadow-sm rounded-4 bg-white">
         <Card.Body className="p-4 p-md-5">
           <h3 className="fs-5 fw-bold text-dark mb-1">What I Do</h3>

@@ -1,5 +1,5 @@
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
-
+import { Profile } from "../types";
 interface Skill {
   name: string;
   fill: string;
@@ -80,25 +80,16 @@ function SkillGrid({ skills }: { skills: Skill[] }) {
   return (
     <div className="d-flex align-items-center gap-2 flex-wrap mb-3">
       {skills.map((tech) => (
-        <OverlayTrigger
-          key={tech.name}
-          placement="top"
-          overlay={<Tooltip id={`tooltip-${tech.name}`}>{tech.name}</Tooltip>}
-        >
+        <OverlayTrigger key={tech.name} placement="top" overlay={<Tooltip id={`tooltip-${tech.name}`}>{tech.name}</Tooltip>}>
           <div
             className="d-inline-flex align-items-center justify-content-center rounded-3 border tech-icon-btn"
-            style={{
-              backgroundColor: tech.bg,
-              borderColor: `${tech.fill}33`,
-            }}
-          >
+            style={{ backgroundColor: tech.bg, borderColor: `${tech.fill}33`, }}>
             <svg
               role="img"
               viewBox="0 0 24 24"
               fill={tech.fill}
               aria-label={tech.name}
-              className="tech-icon-svg"
-            >
+              className="tech-icon-svg">
               <path d={tech.path} />
             </svg>
           </div>
@@ -108,12 +99,13 @@ function SkillGrid({ skills }: { skills: Skill[] }) {
   );
 }
 
-export default function Sidebar() {
+export default function Sidebar({ profile }: { profile: Profile }) {
   return (
     <Card id="sidebar" className="border-0 shadow-sm rounded-4 sidebar-card">
       <div className="sidebar-banner" />
 
       <Card.Body className="pt-0 px-4 pb-4">
+        
         {/* Avatar */}
         <div className="text-center sidebar-avatar-wrapper">
           <img
@@ -121,17 +113,15 @@ export default function Sidebar() {
             alt="Ilbert Esculpi"
             className="rounded-circle shadow border border-4 border-white bg-light sidebar-avatar"
           />
-          <h2 className="fs-4 fw-bold mt-3 mb-1 text-dark">Ilbert Esculpi</h2>
+          <h2 className="fs-4 fw-bold mt-3 mb-1 text-dark">{ profile.name }</h2>
           <span className="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold sidebar-badge">
-            Full-Stack Software Developer
+            { profile.jobTitle }
           </span>
         </div>
 
         {/* Bio */}
         <p className="text-secondary mt-3 mb-0 sidebar-bio">
-          I build and scale robust, high-performance, and secure backend platforms in the cloud. 
-          With 10+ years across AWS & GCP using Node.js & TypeScript, my focus is low-latency engines, 
-          concurrency, and strict IAM/VPC security.
+          { profile.bio }
         </p>
 
         <hr className="my-3 text-secondary opacity-25" />
@@ -158,19 +148,20 @@ export default function Sidebar() {
 
         {/* Contact Info */}
         <ul className="list-unstyled mb-0 d-flex flex-column gap-2 text-secondary sidebar-contact-list">
+          { profile.location && 
           <li className="d-flex align-items-center gap-2">
             <span className="sidebar-contact-icon">📍</span>
-            <span>Caracas, Venezuela</span>
+            <span>{ profile.location }</span>
           </li>
+          }
+          { profile.email && 
           <li className="d-flex align-items-center gap-2">
             <span className="sidebar-contact-icon">✉️</span>
-            <a
-              href="mailto:ilbert.esculpi@gmail.com"
-              className="text-decoration-none text-secondary text-truncate"
-            >
-              ilbert.esculpi@gmail.com
+            <a href="mailto:ilbert.esculpi@gmail.com" className="text-decoration-none text-secondary text-truncate">
+              { profile.email }
             </a>
           </li>
+          }
         </ul>
       </Card.Body>
     </Card>

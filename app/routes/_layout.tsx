@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router";
 import { Container, Row, Col, Navbar } from "react-bootstrap";
 import Sidebar from "~/layout/sidebar";
 import Header from "~/layout/header";
+import profile from "../data/profile";
 
 export default function AppLayout() {
   return (
@@ -16,7 +17,7 @@ export default function AppLayout() {
         <Row className="g-4">
           {/* Left Column */}
           <Col xs={12} md={4}>
-            <Sidebar />
+            <Sidebar profile={profile} />
           </Col>
 
           {/* Right Column */}
