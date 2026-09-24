@@ -19,10 +19,10 @@ const projects: Project[] = [
   {
     id: "preztamos",
     title: "Preztamos.com",
-    role: "Senior Backend Developer",
+    role: "Backend Developer & Cloud Engineer",
     description:
       "Distributed lending microservices platform. Engineered low-latency Apache Solr index clusters, automated BigQuery data ingestion pipelines, and implemented resilient cloud network topologies.",
-    techStack: ["Node.js", "TypeScript", "Apache Solr", "BigQuery", "GCP", "Docker"],
+    techStack: ["GCP", "Firebase", "Node.js", "TypeScript", "Apache Solr", "BigQuery"],
     orientation: "landscape",
     media: [
       { type: "image", url: "/assets/projects/preztamos_home.png", alt: "Preztamos.com Inicio" },
