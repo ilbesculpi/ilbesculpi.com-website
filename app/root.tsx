@@ -36,7 +36,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 // Global Social Media & SEO Tags
-export const meta: Route.MetaFunction = ({ data, location }) => {
+export const meta: Route.MetaFunction = ({ data, location }: any) => {
   // Fallback origin if loader data is undefined (e.g. error boundary renders)
   const origin = data?.origin ?? "https://ilbesculpi.com";
   const canonicalUrl = data?.canonicalUrl ?? `${origin}${location.pathname}`;
@@ -144,6 +144,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
+}
+
+export function HydrateFallback() {
+  return null;
 }
 
 export default function App() {

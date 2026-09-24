@@ -4,6 +4,8 @@ export interface Profile {
   bio: string;
   location?: string;
   email?: string;
+  linkedin?: string;
+  whatsapp?: string;
 }
 
 export type { Profile as default };
