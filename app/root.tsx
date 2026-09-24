@@ -12,70 +12,97 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
 
 const pageTags = {
-  title: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Architect",
+  title: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Engineer",
   description: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
   url: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/",
   image: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png",
+};
+
+export async function loader({ request }: Route.LoaderArgs) {
+  const url = new URL(request.url);
+
+  // AWS ALB / CloudFront forward the real host and protocol here
+  const forwardedHost = request.headers.get("x-forwarded-host");
+  const forwardedProto = request.headers.get("x-forwarded-proto") || "https";
+
+  const host = forwardedHost || url.host;
+  const protocol = forwardedHost ? forwardedProto : url.protocol.replace(":", "");
+  const origin = `${protocol}://${host}`;
+
+  return {
+    origin,
+    canonicalUrl: `${origin}${url.pathname}`,
+  };
 }
 
 // Global Social Media & SEO Tags
-export const meta: Route.MetaFunction = () => [
-  {
-    title: pageTags.title
-  },
-  {
-    name: "description",
-    content: pageTags.description
-  },
-  {
-    name: "author",
-    content: "Ilbert Esculpi"
-  },
+export const meta: Route.MetaFunction = ({ data, location }) => {
+  // Fallback origin if loader data is undefined (e.g. error boundary renders)
+  const origin = data?.origin ?? "https://ilbesculpi.com";
+  const canonicalUrl = data?.canonicalUrl ?? `${origin}${location.pathname}`;
+  const ogImageUrl = `${origin}/avatar.png`;
+  return [
+    {
+      title: pageTags.title
+    },
+    {
+      name: "description",
+      content: pageTags.description
+    },
+    {
+      name: "tags",
+      content: "Software Engineer, Full-Stack Developer, Cloud Engineer, Cloud Architect, AWS Developer, AWS Engineer, GCP Engineer, GCP Developer"
+    },
+    {
+      name: "author",
+      content: "Ilbert Esculpi"
+    },
 
-  // Open Graph / Facebook / LinkedIn / WhatsApp
-  {
-    property: "og:type",
-    content: "website"
-  },
-  {
-    property: "og:url",
-    content: pageTags.url
-  },
-  {
-    property: "og:title",
-    content: pageTags.title
-  },
-  {
-    property: "og:description",
-    content: pageTags.description
-  },
-  {
-    property: "og:image",
-    content: pageTags.image
-  },
-  {
-    property: "og:image:alt",
-    content: "Ilbert Esculpi Profile Photo"
-  },
+    // Open Graph / Facebook / LinkedIn / WhatsApp
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: canonicalUrl
+    },
+    {
+      property: "og:title",
+      content: pageTags.title
+    },
+    {
+      property: "og:description",
+      content: pageTags.description
+    },
+    {
+      property: "og:image",
+      content: ogImageUrl
+    },
+    {
+      property: "og:image:alt",
+      content: "Ilbert Esculpi Profile Photo"
+    },
 
-  // Twitter / X Card
-  {
-    name: "twitter:card",
-    content: "summary_large_image"
-  },
-  {
-    name: "twitter:title",
-    content: pageTags.title
-  },
-  {
-    name: "twitter:description",
-    content: pageTags.description
-  },
-  {
-    name: "twitter:image",
-    content: pageTags.image
-  },
-];
+    // Twitter / X Card
+    {
+      name: "twitter:card",
+      content: "summary_large_image"
+    },
+    {
+      name: "twitter:title",
+      content: pageTags.title
+    },
+    {
+      name: "twitter:description",
+      content: pageTags.description
+    },
+    {
+      name: "twitter:image",
+      content: ogImageUrl
+    },
+  ];
+}
 
 export const links: Route.LinksFunction = () => [
   {

@@ -99,22 +99,23 @@ function SkillGrid({ skills }: { skills: Skill[] }) {
   );
 }
 
-export default function Sidebar({ profile }: { profile: Profile }) {
+export interface SidebarProps {
+  profile: Profile;
+  inDrawer?: boolean;
+}
+
+export default function Sidebar({ profile, inDrawer = false }: SidebarProps) {
   return (
-    <Card id="sidebar" className="border-0 shadow-sm rounded-4 sidebar-card">
+    <Card id={inDrawer ? "sidebar-drawer" : "sidebar"} className={`border-0 ${inDrawer ? "shadow-none" : "shadow-sm"} rounded-4 sidebar-card`}>
       <div className="sidebar-banner" />
 
       <Card.Body className="pt-0 px-4 pb-4">
         
         {/* Avatar */}
         <div className="text-center sidebar-avatar-wrapper">
-          <img
-            src="/avatar.jpeg"
-            alt="Ilbert Esculpi"
-            className="rounded-circle shadow border border-4 border-white bg-light sidebar-avatar"
-          />
+          <img src="/avatar.jpeg" alt="Ilbert Esculpi Profile Photo" className="rounded-circle shadow border border-4 border-white bg-light sidebar-avatar" />
           <h2 className="fs-4 fw-bold mt-3 mb-1 text-dark">{ profile.name }</h2>
-          <span className="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold sidebar-badge">
+          <span className="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold sidebar-badge" style={{ textWrap: 'wrap' }}>
             { profile.jobTitle }
           </span>
         </div>
