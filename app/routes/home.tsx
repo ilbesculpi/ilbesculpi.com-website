@@ -42,9 +42,10 @@ const PILLARS = [
 ];
 
 const METRICS = [
-  { value: "10+", label: "Years Experience" },
+  { value: "12+", label: "Years Experience" },
   { value: "AWS & GCP", label: "Cloud Platforms" },
   { value: "Production", label: "Secure & scalable systems" },
+  { value: "Tech Stack", label: "Backend & mobile apps" },
 ];
 
 export default function Home() {
@@ -61,20 +62,23 @@ export default function Home() {
           </div>
 
           <h2 className="fs-3 fw-bold text-dark mb-3">
-            Engineering scalable backend architectures and modern full-stack platforms.
+            Turning Complex Product Demands into Fast, Resilient Cloud Backends.
           </h2>
 
           <p className="about-intro-p mb-3">
-            I help organizations build and scale robust, high-performance, and secure backend platforms in the cloud. With over a decade of hands-on software engineering, my focus is enabling frictionless technical growth through resilient cloud primitives, high-throughput architectures, and clean maintainable codebases.
+            With 12+ years of full-lifecycle engineering experience anchored by 4 years specializing in cloud-native architectures across <i>AWS</i> and <i>GCP</i>,
+            I help to bridge the gap between product vision and dependable infrastructure.
+            I design and scale systems that eliminate performance bottlenecks, protect critical data, and adapt seamlessly as user demand grows.
           </p>
           <p className="about-intro-p mb-0">
-            Whether designing distributed microservices with Apache Solr and BigQuery, orchestrating containerized services in AWS/GCP, or shipping full-stack products from concept to deployment, I build systems designed to safeguard mission-critical assets from day one.
+            Whether architecting high-throughput microservices or taking applications from concept to production,
+            <strong> I can deliver clean, maintainable systems</strong> that keep operational overhead low and reliability high.
           </p>
 
           {/* Quick Metrics Bar */}
           <Row className="g-3 mt-4 pt-2">
             {METRICS.map((m, idx) => (
-              <Col key={idx} xs={12} sm={4}>
+              <Col key={idx} xs={12} sm={6}>
                 <div className="metric-box">
                   <div className="metric-number">{m.value}</div>
                   <div className="metric-label">{m.label}</div>
