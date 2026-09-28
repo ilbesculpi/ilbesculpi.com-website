@@ -1,22 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
 import type { Route } from "./+types/contact";
 import profile from "../data/profile";
+import ReactGA from 'react-ga4';
 import "./contact.css";
+
+const pageTags = {
+  title: "Contact | Ilbert Esculpi",
+  description: "Get in touch with Ilbert Esculpi for cloud architecture, high-concurrency backend systems, and full-stack development.",
+};
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Contact | Ilbert Esculpi" },
+    {
+      title: "Contact | Ilbert Esculpi"
+    },
     {
       name: "description",
-      content:
-        "Get in touch with Ilbert Esculpi for cloud architecture, high-concurrency backend systems, and full-stack development.",
+      content: pageTags.description,
     },
-    { property: "og:title", content: "Contact - Ilbert Esculpi" },
+    {
+      property: "og:title",
+      content: pageTags.title,
+    },
     {
       property: "og:description",
-      content:
-        "Get in touch with Ilbert Esculpi for cloud architecture, high-concurrency backend systems, and full-stack development.",
+      content: pageTags.descriptionm
     },
     {
       name: "twitter:card",
@@ -26,6 +35,15 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Contact() {
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: 'pageview',
+      page: '/contact',
+      title: pageTags.title,
+    })
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",

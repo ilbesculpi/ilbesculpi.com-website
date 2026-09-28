@@ -1,34 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, Badge, Modal } from "react-bootstrap";
 import type { Route } from "./+types/projects";
 import type { Project, ProjectMedia } from "../types";
 import projectList from "../data/projects";
+import ReactGA from 'react-ga4';
 import "./projects.css";
 
-export function meta({}: Route.MetaArgs) {
+const pageTags = {
+  title: "Projects | Ilbert Esculpi",
+  description: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
+};
+
+export function meta({ data, location }: any) {
+  const origin = data?.origin ?? "https://ilbesculpi.com";
+  const pageUrl = data?.canonicalUrl ?? `${origin}${location.pathname}`;
+  const ogImageUrl = `${origin}/assets/projects/CharacterQuest01.jpeg`;
   return [
     {
-      title: "Projects | Ilbert Esculpi"
+      title: pageTags.title
     },
     {
       name: "description",
-      content: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
+      content: pageTags.description,
     },
     {
       property: "og:title",
-      content: "Projects - Ilbert Esculpi"
+      content: pageTags.title,
     },
     {
       property: "og:description",
-      content: "Explore recent software architectures, mobile platforms, and distributed cloud systems engineered by Ilbert Esculpi.",
+      content: pageTags.description,
     },
     { 
       property: "og:url",
-      content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/projects"
+      content: pageUrl
     },
     {
       property: "og:image",
-      content: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png"
+      content: ogImageUrl
+    },
+    {
+      property: "og:image:alt",
+      content: "GameQuest Photo"
     },
     {
       name: "twitter:card",
@@ -42,6 +55,14 @@ export interface ProjectsProps {
 }
 
 export default function Projects() {
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/projects",
+      title: pageTags.title,
+    });
+  }, []);
 
   const [activeMedia, setActiveMedia] = useState<{
     media: ProjectMedia;
