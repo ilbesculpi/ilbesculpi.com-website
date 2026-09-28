@@ -11,11 +11,17 @@ import type { Route } from "./+types/root";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
 
+// Initialize Google Analytics
+import ReactGA from 'react-ga4';
+const GA_ID = import.meta.env.VITE_GA_ID;
+if( GA_ID ) {
+  ReactGA.initialize(GA_ID);
+  ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Custom Title" });
+}
+
 const pageTags = {
   title: "Ilbert Esculpi - Full-Stack Software Developer & Cloud Engineer",
   description: "Engineering robust backend platforms, cloud infrastructure across AWS & GCP, full-stack web and mobile applications.",
-  url: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/",
-  image: "https://main.d2iqrhfsi9eh3a.amplifyapp.com/avatar.png",
 };
 
 export async function loader({ request }: Route.LoaderArgs) {
@@ -32,6 +38,7 @@ export async function loader({ request }: Route.LoaderArgs) {
   return {
     origin,
     canonicalUrl: `${origin}${url.pathname}`,
+    tags: "Software Engineer, Full-Stack Developer, Cloud Engineer, Cloud Architect, AWS Developer, AWS Engineer, GCP Engineer, GCP Developer",
   };
 }
 
@@ -39,7 +46,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 export const meta: Route.MetaFunction = ({ data, location }: any) => {
   // Fallback origin if loader data is undefined (e.g. error boundary renders)
   const origin = data?.origin ?? "https://ilbesculpi.com";
-  const canonicalUrl = data?.canonicalUrl ?? `${origin}${location.pathname}`;
+  const pageUrl = data?.canonicalUrl ?? `${origin}${location.pathname}`;
   const ogImageUrl = `${origin}/avatar.png`;
   return [
     {
@@ -51,7 +58,7 @@ export const meta: Route.MetaFunction = ({ data, location }: any) => {
     },
     {
       name: "tags",
-      content: "Software Engineer, Full-Stack Developer, Cloud Engineer, Cloud Architect, AWS Developer, AWS Engineer, GCP Engineer, GCP Developer"
+      content: pageTags.tags
     },
     {
       name: "author",
@@ -65,7 +72,7 @@ export const meta: Route.MetaFunction = ({ data, location }: any) => {
     },
     {
       property: "og:url",
-      content: canonicalUrl
+      content: pageUrl
     },
     {
       property: "og:title",
@@ -136,14 +143,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <Links />
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8HYEHDYJV"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-W8HYEHDYJV');
-        </script>
       </head>
       <body>
         {children}
