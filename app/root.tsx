@@ -14,7 +14,9 @@ import "./app.css";
 // Initialize Google Analytics
 import ReactGA from 'react-ga4';
 const GA_ID = import.meta.env.VITE_GA_ID;
+console.log('GA_ID', GA_ID);
 if( GA_ID ) {
+  console.log('Initialized GA', GA_ID);
   ReactGA.initialize(GA_ID);
   ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Custom Title" });
 }
