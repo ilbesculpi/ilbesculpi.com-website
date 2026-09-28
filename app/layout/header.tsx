@@ -43,7 +43,7 @@ export default function Header({
         </div>
 
         <div className="d-none d-sm-block text-secondary small">
-          Full-Stack & Cloud Architect
+          Full-Stack & Cloud Engineer
         </div>
       </Container>
     </header>
